@@ -1,30 +1,99 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>To mimir</title>
-<link rel="stylesheet" href="Styles/cartas.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To mimir - Para ti</title>
+    <link rel="icon" type="image/png" href="Assets/cohete.png" />
+    <link rel="stylesheet" href="Styles/cartas.css">
 </head>
 <body>
-                                <!-- Navbar-->
-<nav class="navbar">
-<div class="contenido-navbar">
-    <a class="navbar-brand">To mimir</a>
-    <div>
-    <a class="nav-link" href="index.html">Inicio</a>
-    <a class="nav-link" href="cuentitos.html">Cuentitos</a>
-    <a class="nav-link" href="cartas.html">Para ti</a>
+    <nav class="navbar">
+        <div class="contenido-navbar">
+            <a class="navbar-brand" href="index.html">To mimir</a>
+            <div class="nav-links">
+                <a class="nav-link" href="index.html">Inicio</a>
+                <a class="nav-link" href="cuentitos.html">Cuentitos</a>
+                <a class="nav-link" href="nosotras.html">Nosotras</a>
+                <a class="nav-link" href="cartas.html">Para ti</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="contenedor-cartas">
+        <header class="header-cartas">
+            <h1>Cartas para ti</h1>
+            <p>Un rincón de palabras que solo te pertenecen a ti.</p>
+        </header>
+
+        <section class="grid-sobres">
+            <div class="sobre" onclick="abrirCarta('carta1')">
+                <div class="sobre-contenido">
+                    <div class="sello">❤️</div>
+                    <h3>Para mi vida</h3>
+                    <p class="fecha-auto"></p> 
+                </div>
+            </div>
+
+            <div class="sobre" onclick="abrirCarta('carta2')">
+                <div class="sobre-contenido">
+                    <div class="sello">🌙</div>
+                    <h3>Bajo el eclipse</h3>
+                    <p class="fecha-auto"></p>
+                </div>
+            </div>
+
+            <div class="sobre" onclick="abrirCarta('carta3')">
+                <div class="sobre-contenido">
+                    <div class="sello">✨</div>
+                    <h3>Un pensamiento</h3>
+                    <p class="fecha-auto"></p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="modalCarta" class="modal">
+        <div class="papel-expandido">
+            <span class="cerrar" onclick="cerrarCarta()">&times;</span>
+            <div class="contenido-carta">
+                <p id="fecha-modal" class="fecha-carta"></p>
+                <div id="texto-modal"></div>
+                <p class="firma">Con amor, Yo.</p>
+            </div>
+        </div>
     </div>
-</div>
-</nav>
-                                <!--CONTENIDO-->
-<div class="contenido">
-    
-</div>
-                                <!--Footer-->
+
 <footer>
-    <p> © 2025 To mimir - Te quiero 💓</p>
+    <p>© To mimir - Te amo </p>
 </footer>
+
+    <script>
+        // Fecha automática
+        const opciones = { year: 'numeric', month: 'long', day: 'numeric' };
+        const hoy = new Date().toLocaleDateString('es-ES', opciones);
+        document.querySelectorAll('.fecha-auto').forEach(el => el.innerText = hoy);
+
+        // Textos de las cartas
+        const misCartas = {
+            carta1: { texto: "Aquí va tu mensaje largo para ella...\n\nEres el regalo más grande." },
+            carta2: { texto: "Mensaje especial bajo el eclipse.\n\nTe amo." },
+            carta3: { texto: "Un pequeño pensamiento nocturno." }
+        };
+
+        function abrirCarta(id) {
+            document.getElementById("fecha-modal").innerText = hoy;
+            document.getElementById("texto-modal").innerText = misCartas[id].texto;
+            document.getElementById("modalCarta").style.display = "block";
+            document.body.style.overflow = "hidden";
+        }
+
+        function cerrarCarta() {
+            document.getElementById("modalCarta").style.display = "none";
+            document.body.style.overflow = "auto";
+        }
+
+        window.onclick = function(e) { if (e.target.className == 'modal') cerrarCarta(); }
+    </script>
 </body>
 </html>

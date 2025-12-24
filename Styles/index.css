@@ -9,7 +9,11 @@ body{
     background-image: url(../Assets/universo.jpg);
     background-size: cover;
     background-position: center;
-}   
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    margin: 0;
+}
 
 .navbar {
 background-color: #47040100;
