@@ -1,0 +1,167 @@
+/* --- BASE Y FONDO --- */
+body {
+    background-color: #0b0114;
+    color: #f7f6e4;
+    font-family: 'Georgia', serif; 
+    margin: 0;
+    line-height: 1.8;
+}
+
+.navbar {
+background-color: #47040100;
+color: #F7F6E4;
+padding-bottom: 15px 0;
+width: 100%;
+}
+
+.contenido-navbar{
+width: 100%;
+max-width: 1200px;
+margin: 0 auto;
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 0 20px;
+max-height: fit-content;
+}
+
+.navbar a{
+text-decoration: none;
+}
+
+.navbar-brand{
+color: #F7F6E4;
+font-size: 1.3rem;
+font-family: 'Helvetica', sans-serif;
+}
+
+.nav-link{
+text-align: center;
+display: inline-block;
+padding: 15px 40px;
+cursor: pointer;
+letter-spacing: 2px;
+position:relative;
+overflow:hidden;
+margin: 0 20px;
+color: #F7F6E4;
+transition: color 0.3s;
+}
+
+.nav-link:before {
+content: "";
+position: absolute;
+width: 0;
+background : #F7F6E4;
+left: 45%;
+height: 2px;
+bottom: 0;
+transition: all .3s;
+opacity: 0.7;
+}
+
+.nav-link:hover:before {
+width: 100%;
+left:0;
+}
+
+.lectura-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding-bottom: 50px;
+}
+
+/* --- HEADER DEL CUENTO --- */
+.cuento-header {
+    height: 400px;
+    background-image: url('../Assets/fondo-nosotras.jpg'); 
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    border-bottom: 3px solid #470401;
+}
+
+.overlay-cuento {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 40px;
+    background: linear-gradient(transparent, #0b0114);
+    text-align: center;
+}
+
+.overlay-cuento h1 {
+    font-size: 3rem;
+    margin: 0;
+    letter-spacing: 2px;
+    position: center;
+}
+
+/* --- REPRODUCTOR --- */
+.reproductor-cuento {
+    background: rgba(71, 4, 1, 0.4);
+    backdrop-filter: blur(5px);
+    margin: 30px 20px;
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+    border: 1px solid rgba(247, 246, 228, 0.2);
+}
+
+audio {
+    width: 100%;
+    max-width: 400px;
+    margin-top: 10px;
+    filter: invert(10%) sepia(90%) saturate(300%) hue-rotate(320deg);
+}
+
+/* --- TEXTO DEL CUENTO --- */
+.cuerpo-cuento {
+    padding: 40px 20px;
+    font-size: 1.2rem;
+    color: #e0ded0;
+    text-align: justify;
+}
+
+.letra-capital {
+    float: left;
+    font-size: 5rem;
+    line-height: 0;
+    padding-top: 10px;
+    padding-right: 15px;
+    color: #ff4d4d;
+    font-family: 'Times New Roman', serif;
+}
+
+.separador {
+    text-align: center;
+    font-size: 2rem;
+    margin: 40px 0;
+    color: rgba(247, 246, 228, 0.3);
+}
+
+/* --- BOTONES --- */
+.controles-lectura {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.btn-volver {
+    color: #f7f6e4;
+    text-decoration: none;
+    border: 1px solid #f7f6e4;
+    padding: 10px 25px;
+    border-radius: 30px;
+    transition: 0.3s;
+}
+
+.btn-volver:hover {
+    background: #f7f6e4;
+    color: #0b0114;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 600px) {
+    .overlay-cuento h1 { font-size: 2rem; }
+    .cuerpo-cuento { font-size: 1.1rem; }
+}

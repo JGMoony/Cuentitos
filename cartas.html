@@ -30,16 +30,16 @@
             <div class="sobre" onclick="abrirCarta('carta1')">
                 <div class="sobre-contenido">
                     <div class="sello">❤️</div>
-                    <h3>Para mi vida</h3>
-                    <p class="fecha-auto"></p> 
+                    <h3>Feliz Navidad</h3>
+                    <p class="fecha-auto">24 de diciembre, 2025</p> 
                 </div>
             </div>
 
             <div class="sobre" onclick="abrirCarta('carta2')">
                 <div class="sobre-contenido">
-                    <div class="sello">🌙</div>
-                    <h3>Bajo el eclipse</h3>
-                    <p class="fecha-auto"></p>
+                    <div class="sello">🤍</div>
+                    <h3>Para la cumpleañera más increíble del mundo</h3>
+                    <p class="fecha-auto">29 de diciembre, 2025</p>
                 </div>
             </div>
 
@@ -47,11 +47,10 @@
                 <div class="sobre-contenido">
                     <div class="sello">✨</div>
                     <h3>Un pensamiento</h3>
-                    <p class="fecha-auto"></p>
+                    <p class="fecha-auto">Establecer fecha</p>
                 </div>
             </div>
         </section>
-    </main>
 
     <div id="modalCarta" class="modal">
         <div class="papel-expandido">
@@ -59,30 +58,33 @@
             <div class="contenido-carta">
                 <p id="fecha-modal" class="fecha-carta"></p>
                 <div id="texto-modal"></div>
-                <p class="firma">Con amor, Yo.</p>
-            </div>
+                <p class="firma">Con amor, Lis.</p>
         </div>
     </div>
+</div>
+    </main>
 
 <footer>
     <p>© To mimir - Te amo </p>
 </footer>
 
     <script>
-        // Fecha automática
-        const opciones = { year: 'numeric', month: 'long', day: 'numeric' };
-        const hoy = new Date().toLocaleDateString('es-ES', opciones);
-        document.querySelectorAll('.fecha-auto').forEach(el => el.innerText = hoy);
-
-        // Textos de las cartas
         const misCartas = {
-            carta1: { texto: "Aquí va tu mensaje largo para ella...\n\nEres el regalo más grande." },
-            carta2: { texto: "Mensaje especial bajo el eclipse.\n\nTe amo." },
-            carta3: { texto: "Un pequeño pensamiento nocturno." }
-        };
+            carta1: {
+                fecha: "24 de Diciembre, 2025",
+                texto: "Mi amor,\n\n Te escribo esto mientras miro a mi alrededor y siento un vacío porque no estás aquí conmigo. Sé que no han sido días fáciles para nosotras las peleas y la distancia nos han puesto a prueba, y me duele que lleguemos a esta fecha con esa tensión entre los dos.\n\n Sé que hoy no es un día sencillo para ti. Sé que estar en casa puede ser agotador y que a veces te sientes fuera de lugar o incómoda ahí. Me genera impotencia estar aquí tan lejos y no poder simplemente tomarte de la mano,sacarte de ese ambiente y llevarte a un lugar donde solo estemos tranquilas tú y yo.\n\n Perdóname si con nuestras discusiones recientes he sumado más peso a tus hombros. Mi intención siempre es ser tu refugio, no el motivo de tus problemas. A pesar de los roces, quiero que sepas que sigo eligiéndote cada día y que valoro cada esfuerzo que haces.Aunque hoy nos separen los kilómetros y los malentendidos, mi corazón está ahí contigo, sentada a tu lado en esa cena. \n\n Te pido que, cuando te sientas agobiada esta noche, cierres los ojos un momento y recuerdes que yo estoy aquí, contando los días para volver a verte y arreglar todo con un abrazo de esos que nos hacen olvidar el mundo.Eres más fuerte de lo que crees y espero que dentro de todo encuentres un momento de paz hoy. \n\n Te extraño, te amo y espero que el próximo año la Navidad nos encuentre \n más cerca y más tranquilas." },
+            carta2: {
+            fecha: "29 de diciembre, 2025",
+            texto: "Hoy no es un día cualquiera, es el día en que el mundo se hizo un poquito mejor porque naciste tú. Y aunque no soy muy buena para escribir mensajes largos y menos de cumpleaños, tú logras que me salgan las palabras (o que al menos lo intente). Quería empezar dándote las gracias. \n Gracias por ser mi lugar seguro, por esa sonrisa que me desarma incluso cuando he tenido un día terrible y por tener la paciencia para aguantar mis ocurrencias. \n Sé que a veces no soy la persona más fácil del mundo, pero tú haces que quererse parezca la tarea más sencilla del planeta. \n Eres esa mezcla perfecta que todavía no entiendo cómo cabe en una sola persona: eres inteligente, eres fuerte, eres hermosa y extrañamente, también te ríes de mis chistes malos (lo cual dice mucho de tu dudoso sentido del humor). \n Me encanta que podamos pasar de una cena romántica hablando del futuro a una tarde entera en pijama siendo un par de huevas. Me encanta cómo te emocionas por las cosas pequeñas y cómo logras que todo sea más especial. \n\n En este nuevo año que empiezas, tengo algunos deseos para ti, son sencillos:\n - Que nunca te falten motivos para reír hasta que te duela el estomago.\n - Que cumplas cada uno de esos sueños que me has contado en voz baja.\n - Y que me dejes seguir estando ahí para celebrarlos (y para ayudarte a soplar las velas si te quedas sin aire).\n\n Prometo seguir siendo el que te robe comida del plato cuando no mires, el que te dé los mejores abrazos del mundo y el que siempre, siempre, te recuerde lo afortunada que soy de tenerte.\n\n Feliz cumpleaños, mi amor. Vamos a hacer que este año sea inolvidable. \n\n Con todo mi amor (y un poquito de hambre de pastel)."
+            },
+            carta3: {
+                fecha: "31 de diciembre, 2025",
+                texto: "No disponible aún..."
+            }
+        }
 
         function abrirCarta(id) {
-            document.getElementById("fecha-modal").innerText = hoy;
+            document.getElementById("fecha-modal").innerText = misCartas[id].fecha;
             document.getElementById("texto-modal").innerText = misCartas[id].texto;
             document.getElementById("modalCarta").style.display = "block";
             document.body.style.overflow = "hidden";
@@ -93,7 +95,9 @@
             document.body.style.overflow = "auto";
         }
 
-        window.onclick = function(e) { if (e.target.className == 'modal') cerrarCarta(); }
+        window.onclick = function(e) { 
+            if (e.target.className == 'modal') cerrarCarta(); 
+        }
     </script>
 </body>
 </html>
